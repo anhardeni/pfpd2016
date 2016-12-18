@@ -1,0 +1,127 @@
+<?php
+use kartik\grid\GridView;
+use yii\data\ArrayDataProvider;
+
+    $dataProvider = new ArrayDataProvider([
+        'allModels' => $model->datakeberatan2016s,
+        'key' => 'id'
+    ]);
+    $gridColumns = [
+        ['class' => 'yii\grid\SerialColumn'],
+        ['attribute' => 'id', 'visible' => false],
+        'tglmasukkeberatan',
+        [
+                'attribute' => 'namaperusahaan0.id',
+                'label' => 'Namaperusahaan'
+            ],
+        'qq',
+        'nomorsuratpermohonan',
+        'tanggalsuratpermohonan',
+        'suratpenetapan',
+        'nospkpbm_spsa',
+        'tglspkpbm_spsa',
+        'jumlahtagihan',
+        'salah',
+        'nopib',
+        'tglpib',
+        [
+                'attribute' => 'namapfpd0.id',
+                'label' => 'Namapfpd'
+            ],
+        'jalur',
+        'spkpbmgabungan',
+        'nospkpbmgabungan',
+        'tglspkpbmgabungan',
+        'jumlahtagihanspkpbmlanjutan',
+        'jenisjaminan',
+        'nomorbpj_sspcp',
+        'tglbpj_sspcp',
+        'kasikeberatan',
+        'ekspedisikankekasikeberatan',
+        'ditolakformal',
+        'spkpbmlebih30hari',
+        'spkpbmdibatalkan_direvisi',
+        'nospkpbmrevisi',
+        'tglspkpbmrevisi',
+        'dijawabdenganpenjelasan',
+        'pengajuandibatalkan',
+        'tglterimasuratpembatalan',
+        'nosuratbatalkebaratan',
+        'tglsuratpembatalankeberatan',
+        'diteruskan',
+        'nomorsuratpenerusan',
+        'tanggalsrtpenerusan',
+        'diputuskan',
+        'nokep',
+        'tglkep',
+        'jenispenetapan',
+        'hasilkeputusan',
+        'tagihanhasilkep',
+        'mintarisalah',
+        'nomornd',
+        'tanggalndrisalah',
+        'mintarisalahtambahan',
+        'terimarisalah',
+        'tanggalterimarisalah',
+        'mintaaudit',
+        'ndmintaaudit',
+        'tglndmintaaudit',
+        'terimandlha',
+        'tanggalterimalha',
+        'nomorndlha',
+        'tglndlha',
+        'nomorlha',
+        'tgllha',
+        'mintadata',
+        'srtmintadata',
+        'tglsrtdata',
+        'terimadatatambahan',
+        'tglterimadatatambahan',
+        'nosuratpengantardatatambahan',
+        'tglsurat',
+        'dimintasub',
+        'dimintarevisinotul',
+        'nondpermintaannotulrevisi',
+        'tglndpermintaannotulrevisi',
+        'keterangan:ntext',
+        'noagendakantor',
+        'tglagenda',
+        'diserahkankeseksi',
+        'tglpenyerahankeseksi',
+        'diserahkankekabid',
+        'tglpenyerahankekabid',
+        'jenisbarang',
+        'hspib',
+        'tarifpib',
+        'hspfpd',
+        'tarifpfpd',
+        'hskeputusan',
+        'tarifkep',
+        'ketpenetapan',
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'controller' => 'datakeberatan2016'
+        ],
+    ];
+    
+    echo GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'containerOptions' => ['style' => 'overflow: auto'],
+        'pjax' => true,
+        'beforeHeader' => [
+            [
+                'options' => ['class' => 'skip-export']
+            ]
+        ],
+        'export' => [
+            'fontAwesome' => true
+        ],
+        'bordered' => true,
+        'striped' => true,
+        'condensed' => true,
+        'responsive' => true,
+        'hover' => true,
+        'showPageSummary' => false,
+        'persistResize' => false,
+    ]);

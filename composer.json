@@ -1,0 +1,73 @@
+{
+    "name": "hscstudio/yii2-app-workshop",
+    "description": "Yii 2 Workshop Project Template",
+    "keywords": ["yii2", "framework", "workshop", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/hscstudio/yii2-app-workshop/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "https://github.com/hscstudio/yii2-app-workshop/wiki",
+        "source": "https://github.com/hscstudio/yii2-app-workshop"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.6@stable",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+		"hscstudio/yii2-export": "~1.0",
+        "hscstudio/yii2-mimin": "~1.0",
+		"kartik-v/yii2-widgets": "~3.4",
+        "kartik-v/yii2-datecontrol": "dev-master",
+        "deesoft/yii2-adminlte": "~1.0",
+        "mdmsoft/yii2-admin": "~3.2",
+        "mdmsoft/yii2-autonumber": "~1.0",
+        "mdmsoft/yii2-format-converter": "~1.0",
+        "mdmsoft/yii2-ar-behaviors": "~1.0" ,
+        "mootensai/yii2-enhanced-gii": "dev-master",
+        "kartik-v/yii2-mpdf": "dev-master",
+        "kartik-v/yii2-tree-manager": "dev-master",
+        "reportico/yii2-reportico": "dev-master",
+         "dmstr/yii2-adminlte-asset": "2.*",
+         "miloschuman/yii2-highcharts-widget": "dev-master",
+         "drsdre/yii2-wizardwidget": "*",
+         "vova07/yii2-imperavi-widget": "*",
+         "perminder-klair/yii2-dropzone": "dev-master",
+        "jeff/yii2-sso-server": "*"       
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
+    },
+    "config": {
+        
+        "process-timeout": 1800
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
